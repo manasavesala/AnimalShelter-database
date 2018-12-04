@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Here's the details on your selected animal:</h1>
+
+@foreach (var item in Model)
+{
+    <ul>
+    <li>@item.GetName()</li>
+    <li>@item.GetType()</li>
+    <li>@item.GetDate()</li>
+    <li>@item.GetBreed()</li>
+    </ul>
+    <br>
+}
+
+<h3><a href="/animal/index"> Go back to main page</a></h3>
+<h3><a href="/animal/new">Add another animal</a></h3>

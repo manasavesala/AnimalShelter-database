@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>List of Animals</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No animals have been added yet!</h3>
+}
+
+@foreach (var animal in Model)
+{
+  <h3><a href='/animal/show/@animal.GetId()'>@animal.GetName()</a></h3>
+}
+
+<h4><a href='/'>Back home</a></h4><br>
+<h4><a href='/animal/new'>Add another animal</a></h4>

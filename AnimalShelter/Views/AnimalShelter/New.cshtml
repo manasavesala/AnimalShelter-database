@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hello</title>
+  </head>
+  <body>
+    <h1>Add a new animal to List</h1>
+
+    <form action='/animal/index' method='post'>
+      <label for='animalName'>Animal Name</label>
+      <input id='animalName' name='animalName' type='text'><br>
+      <label for='animalType'>Animal Type</label>
+      <input id='animalType' name='animalType' type='text'><br>
+      <label for='animalDate'>Date</label>
+      <input id='animalDate' name='animalDate' type='date'><br>
+      <label for='animalBreed'>Animal Breed</label>
+      <input id='animalBreed' name='animalBreed' type='text'><br>
+      <button type='submit'>Add Animal</button>
+
+
+    </form>
+  </body>
+</html>
