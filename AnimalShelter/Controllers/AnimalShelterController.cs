@@ -13,7 +13,7 @@ namespace AnimalShelter.Controllers
     }
 
     [HttpPost("/animal/index")]
-    public ActionResult Create(string AnimalName, string AnimalType, string AnimalDate, string AnimalBreed)
+    public ActionResult Create(string AnimalName,  string AnimalType, string AnimalDate, string AnimalBreed)
     {
         Animal newAnimal = new Animal(AnimalName, AnimalType, AnimalDate, AnimalBreed);
         newAnimal.Save();
@@ -22,7 +22,7 @@ namespace AnimalShelter.Controllers
     }
 
     [HttpGet("/animal/index")]
-    public ActionResult Show(string AnimalName, string AnimalType, string AnimalDate, string AnimalBreed)
+    public ActionResult Show(string AnimalName,  string AnimalType, string AnimalDate, string AnimalBreed)
     {
         List<Animal> allAnimals = Animal.GetAll();
         return View("Index", allAnimals);
@@ -39,6 +39,12 @@ namespace AnimalShelter.Controllers
     {
         List<Animal>allAnimals = Animal.GetAnimal(animalId);
         return View("Show", allAnimals);
+    }
+    [HttpGet("/animal/index/order")]
+    public ActionResult Sort(int animalId)
+    {
+        List<Animal>allAnimals = Animal.GetSortedbyDate();
+        return View("Index", allAnimals);
     }
 
   }

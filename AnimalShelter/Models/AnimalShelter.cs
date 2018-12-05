@@ -72,8 +72,35 @@ namespace AnimalShelter.Models
       {
         int animalId = rdr.GetInt32(4);
         string animalName = rdr.GetString(0);
-        string animalDate = rdr.GetString(1);
-        string animalType = rdr.GetString(2);
+        string animalType = rdr.GetString(1);
+        string animalDate = rdr.GetString(2);
+        string animalBreed= rdr.GetString(3);
+
+        Animal newAnimalShelter = new Animal(animalName, animalType, animalDate, animalBreed, animalId); // <--- This line now uses two arguments!
+        allAnimalsList.Add(newAnimalShelter);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allAnimalsList;
+    }
+
+    public static List<Animal> GetSortedbyDate()
+    {
+      List<Animal> allAnimalsList = new List<Animal> { };
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM animalshelter ORDER BY date ASC;";
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int animalId = rdr.GetInt32(4);
+        string animalName = rdr.GetString(0);
+        string animalType = rdr.GetString(1);
+        string animalDate = rdr.GetString(2);
         string animalBreed= rdr.GetString(3);
 
         Animal newAnimalShelter = new Animal(animalName, animalType, animalDate, animalBreed, animalId); // <--- This line now uses two arguments!
@@ -99,8 +126,8 @@ namespace AnimalShelter.Models
       {
         int animalId = rdr.GetInt32(4);
         string animalName = rdr.GetString(0);
-        string animalDate = rdr.GetString(1);
-        string animalType = rdr.GetString(2);
+        string animalType = rdr.GetString(1);
+        string animalDate = rdr.GetString(2);
         string animalBreed= rdr.GetString(3);
 
         Animal newAnimalShelter = new Animal(animalName, animalType, animalDate, animalBreed, animalId); // <--- This line now uses two arguments!

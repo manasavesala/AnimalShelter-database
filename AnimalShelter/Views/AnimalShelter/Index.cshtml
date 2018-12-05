@@ -11,8 +11,9 @@
 
 @foreach (var animal in Model)
 {
-  <h3><a href='/animal/show/@animal.GetId()'>@animal.GetName()</a></h3>
+  <h3><a href='/animal/show/@animal.GetId()'>@animal.GetName()</a>, @animal.GetDate()</h3>
 }
 
 <h4><a href='/'>Back home</a></h4><br>
 <h4><a href='/animal/new'>Add another animal</a></h4>
+<h4><a href='/animal/index/order'>Sort animals by date</a></h4>
