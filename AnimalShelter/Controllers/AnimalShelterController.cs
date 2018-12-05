@@ -46,6 +46,12 @@ namespace AnimalShelter.Controllers
         List<Animal>allAnimals = Animal.GetSortedbyDate();
         return View("Index", allAnimals);
     }
+    [HttpGet("/animal/index/sortbytype")]
+    public ActionResult SortByType(int animalId)
+    {
+        List<Animal>allAnimals = Animal.GetSortedbyType();
+        return View("Index", allAnimals);
+    }
 
   }
 }
